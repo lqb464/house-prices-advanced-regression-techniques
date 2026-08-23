@@ -1,0 +1,7 @@
+/// <reference types="next" />
+/// <reference types="next/image-types/global" />
+import "./.next/types/routes.d.ts";
+import "./.next/types/root-params.d.ts";
+
+// LƯU Ý: Không chỉnh sửa file này.
+// Xem thêm tại https://nextjs.org/docs/app/api-reference/config/typescript.

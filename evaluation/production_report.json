@@ -1,0 +1,49 @@
+{
+  "project": "StocKast",
+  "ticker": "VIC.VN",
+  "scope": "framework d\u1ef1 b\u00e1o stock time series; report n\u00e0y l\u00e0 run minh ho\u1ea1 tr\u00ean VIC",
+  "role": "framework Data Scientist v\u00e0 ML Engineer",
+  "target": "cumulative log-return 5 phi\u00ean sau khi th\u1ecb tr\u01b0\u1eddng \u0111\u00f3ng c\u1eeda",
+  "selected_model": "gru_rnn",
+  "calibration_model": "ridge",
+  "business_baseline": "zero-return",
+  "deployment_status": "deployment_blocked",
+  "deployment_reasons": [
+    "MAE tr\u00ean holdout kh\u00f4ng t\u1ed1t h\u01a1n zero-return baseline",
+    "interval coverage tr\u00ean holdout th\u1ea5p h\u01a1n ng\u01b0\u1ee1ng tri\u1ec3n khai 70%"
+  ],
+  "holdout_period": [
+    "2024-12-03",
+    "2026-08-07"
+  ],
+  "metrics": {
+    "technical": {
+      "mae": 0.073130302131176,
+      "rmse": 0.09716242865482892,
+      "directional_accuracy": 0.4031890660592255
+    },
+    "zero_return_baseline_mae": 0.06067145716831435,
+    "interval_coverage_80": 0.43735763097949887,
+    "interval_half_width_log_return": 0.046576259109391956,
+    "directional_false_positive_rate": 0.12984054669703873,
+    "manual_review_rate": 0.8200455580865603
+  },
+  "decision_policy": {
+    "usage": "ch\u1ec9 d\u00f9ng cho k\u1ecbch b\u1ea3n nghi\u00ean c\u1ee9u v\u00e0 model monitoring",
+    "manual_review": "g\u1eafn c\u1edd interval c\u1eaft qua 0, input ngo\u00e0i ph\u00e2n ph\u1ed1i ho\u1eb7c c\u1ea3nh b\u00e1o schema",
+    "business_cap": "clip log-return c\u1ee7a model trong +/-0,20; gi\u1eef d\u1ef1 b\u00e1o th\u00f4 \u0111\u1ec3 audit",
+    "automation": "kh\u00f4ng t\u1ef1 \u0111\u1ed9ng \u0111\u1eb7t l\u1ec7nh, ph\u00e2n b\u1ed5 v\u1ed1n hay ph\u00ea duy\u1ec7t \u0111\u1ea7u t\u01b0"
+  },
+  "monitoring": [
+    "t\u00ednh h\u1ee3p l\u1ec7 c\u1ee7a schema",
+    "feature PSI",
+    "prediction drift",
+    "realized MAE",
+    "interval coverage"
+  ],
+  "limitations": [
+    "run minh ho\u1ea1 tr\u00ean m\u1ed9t ticker kh\u00f4ng ch\u1ee9ng minh kh\u1ea3 n\u0103ng t\u1ed5ng qu\u00e1t; c\u1ea7n t\u00e1i l\u1eadp theo ticker ho\u1eb7c universe m\u1ee5c ti\u00eau",
+    "technical feature t\u1eeb OHLCV kh\u00f4ng ch\u1ee9a fundamentals v\u00e0 b\u1ed1i c\u1ea3nh s\u1ef1 ki\u1ec7n",
+    "backtest kh\u00f4ng ch\u1ee9ng minh l\u1ee3i nhu\u1eadn t\u01b0\u01a1ng lai"
+  ]
+}

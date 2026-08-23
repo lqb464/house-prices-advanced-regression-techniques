@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports: ["8000:8000"]
+    environment:
+      - PORT=8000
+      - CORS_ORIGINS=http://localhost:3000
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./evaluation:/app/evaluation:ro
+      - ./configs:/app/configs:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:8000/api
+    ports: ["3000:3000"]
+    depends_on:
+      backend:
+        condition: service_healthy

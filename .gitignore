@@ -1,0 +1,58 @@
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ─── Môi trường ảo ──────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+.env/
+
+# ─── Jupyter ─────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+.matplotlib/
+
+# ─── Dữ liệu ────────────────────────────────────────────────────────────────
+# Dữ liệu thị trường được tải lại bằng script, không commit file lớn.
+data/*.csv
+data/raw/*.csv
+data/yfinance-cache/
+
+# ─── Output ──────────────────────────────────────────────────────────────────
+outputs/models/
+outputs/reports/
+
+# ─── Kiểm thử ───────────────────────────────────────────────────────────────
+.pytest_cache/
+.pytest_tmp*/
+.coverage
+htmlcov/
+coverage.xml
+
+# ─── IDE ─────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ─── Khác ────────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+.env
+
+# ─── Next.js ────────────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/.next/
+
+# ─── Trạng thái runtime ─────────────────────────────────────────────────────
+data/*.db

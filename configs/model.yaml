@@ -1,0 +1,32 @@
+# Ticker và đường dẫn dưới đây là cấu hình ví dụ; có thể thay cho từng run.
+project: StocKast
+ticker: VIC.VN
+data_path: data/raw/VIC_VN.csv
+artifact_path: outputs/models/stock_hybrid_ensemble.pt
+report_path: evaluation/production_report.json
+target:
+  name: target_return_5d
+  horizon_sessions: 5
+population:
+  min_rows: 500
+  sentinel_values: [-999, -9999]
+split:
+  train_fraction: 0.60
+  validation_fraction: 0.20
+  purge_gap: 5
+  random_seed: 42
+model:
+  selected: hybrid_ensemble
+  sequence_length: 20
+  hidden_size: 24
+  epochs: 20
+  learning_rate: 0.002
+  batch_size: 64
+interval:
+  coverage: 0.80
+business:
+  prediction_cap: 0.20
+  max_batch_rows: 5000
+deployment_gate:
+  max_mae_vs_zero_baseline: 1.00
+  min_interval_coverage: 0.70

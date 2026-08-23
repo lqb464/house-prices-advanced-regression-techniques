@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Kiến trúc DS và MLE của StocKast</title>
+  <desc id="desc">Dữ liệu thị trường của ticker đang cấu hình đi qua bước kiểm tra, feature engineering, các component ML và RNN, hybrid ensemble, artifact gate và serving dành cho nghiên cứu.</desc>
+  <rect width="1200" height="500" fill="#f4f2eb"/>
+  <style>.box{fill:#fffef9;stroke:#101514;stroke-width:2}.gate{fill:#eef4ff;stroke:#1544c0;stroke-width:3}.t{font:700 22px Arial;fill:#101514}.s{font:15px Arial;fill:#66706d}.a{stroke:#1544c0;stroke-width:4;fill:none;marker-end:url(#m)}</style>
+  <defs><marker id="m" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1544c0"/></marker></defs>
+  <rect class="box" x="40" y="170" width="190" height="130" rx="8"/><text class="t" x="65" y="215">Ticker OHLCV</text><text class="s" x="65" y="248">VIC.VN là ví dụ</text><text class="s" x="65" y="274">phiên ngày thô</text>
+  <path class="a" d="M230 235 H290"/>
+  <rect class="box" x="290" y="110" width="220" height="250" rx="8"/><text class="t" x="315" y="155">Data pipeline</text><text class="s" x="315" y="192">schema + population</text><text class="s" x="315" y="222">feature chống leakage</text><text class="s" x="315" y="252">chia 60 / 20 / 20</text><text class="s" x="315" y="282">chuỗi 20 phiên</text><text class="s" x="315" y="312">scaler chỉ fit trên train</text>
+  <path class="a" d="M510 235 H570"/>
+  <rect class="box" x="570" y="70" width="240" height="330" rx="8"/><text class="t" x="595" y="115">Component models</text><text class="s" x="595" y="155">zero / recent return</text><text class="s" x="595" y="185">Ridge</text><text class="s" x="595" y="215">Extra Trees</text><text class="s" x="595" y="245">HistGradientBoosting</text><text class="s" x="595" y="275">GRU RNN</text><text class="s" x="595" y="325">hybrid ensemble</text><text class="s" x="595" y="355">validation rồi holdout</text>
+  <path class="a" d="M810 235 H870"/>
+  <rect class="gate" x="870" y="120" width="290" height="230" rx="8"/><text class="t" x="895" y="165">Quality gate</text><text class="s" x="895" y="205">so với baseline ticker</text><text class="s" x="895" y="235">coverage + MAE</text><text class="s" x="895" y="280">API nghiên cứu + batch CLI</text><text class="s" x="895" y="310">checksum + drift + rà soát</text>
+</svg>
